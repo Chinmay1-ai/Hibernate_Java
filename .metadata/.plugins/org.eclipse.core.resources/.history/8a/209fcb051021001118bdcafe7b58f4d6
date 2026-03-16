@@ -1,0 +1,40 @@
+package com.entity;
+
+import java.util.List;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+
+public class Course {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int courseId;
+
+	private String courseName;
+	private double price;
+
+	@ManyToMany(mappedBy = "courses")
+	private List<Student> students;
+
+	
+	public Course() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Course(int courseId, String courseName, double price, List<Student> students) {
+		super();
+		this.courseId = courseId;
+		this.courseName = courseName;
+		this.price = price;
+		this.students = students;
+	}
+	
+	
+	
+	
+}

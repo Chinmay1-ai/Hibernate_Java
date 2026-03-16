@@ -1,0 +1,75 @@
+package com.entity;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Department {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int departmentId;
+
+	private String departmentName;
+	private String location;
+
+	@OneToMany(mappedBy = "department")
+	private List<Instructor> instructors;
+
+	public Department() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Department(int departmentId, String departmentName, String location, List<Instructor> instructors) {
+		super();
+		this.departmentId = departmentId;
+		this.departmentName = departmentName;
+		this.location = location;
+		this.instructors = instructors;
+	}
+
+	public int getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
+	}
+
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public List<Instructor> getInstructors() {
+		return instructors;
+	}
+
+	public void setInstructors(List<Instructor> instructors) {
+		this.instructors = instructors;
+	}
+
+	@Override
+	public String toString() {
+		return "Department [departmentId=" + departmentId + ", departmentName=" + departmentName + ", location="
+				+ location + ", instructors=" + instructors + "]";
+	}
+
+}

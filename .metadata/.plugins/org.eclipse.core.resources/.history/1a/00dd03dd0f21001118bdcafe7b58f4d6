@@ -1,0 +1,17 @@
+package com.entity;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+public class Course {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int courseId;
+
+	private String courseName;
+	private double price;
+	
+	
+}
